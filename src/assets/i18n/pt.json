@@ -1,0 +1,19 @@
+{
+  "LOGIN": {
+    "USERNAME": "Nome de Usuário",
+    "TITLE": "Entrar",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Senha",
+    "CREATE_ACCOUNT": "Criar Conta",
+    "OR": "Ou",
+    "HAVE_ACCOUNT": "Já tem uma conta?"
+  },
+  "LANGUAGE": {
+    "PT": "Português",
+    "EN": "Inglês"
+  },
+  "HOME": {
+    "TITLE": "Viaje Conosco",
+    "DESCRIPTION": "Compartilhe suas viagens e descreva suas experiências."
+  }
+}

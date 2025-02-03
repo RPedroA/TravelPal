@@ -1,0 +1,42 @@
+.loading-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    width: 100vw;
+    background-color: #ffffff; 
+  }
+  
+  .logo-container {
+    text-align: center;
+  }
+  
+  .loading-logo {
+    width: 700px; 
+    height: auto;
+    animation: fill-effect 3s forwards ease-in-out; 
+  }
+  
+  .loading-text {
+    font-size: 1.5rem;
+    color: #333; 
+    margin-top: 1rem;
+    opacity: 0; 
+    animation: fade-in 3s 2.5s forwards; 
+  }
+  
+  @keyframes fill-effect {
+    0% {
+      filter: grayscale(100%); 
+    }
+    100% {
+      filter: grayscale(0); 
+    }
+  }
+  
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+    }
+  }
+  

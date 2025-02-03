@@ -1,0 +1,79 @@
+<ion-content class="login-container">
+  <div class="header">
+    <ion-button 
+      fill="clear" 
+      class="back-button"
+      (click)="goBack()"
+    >
+      <ion-icon 
+        name="arrow-back-outline"
+        class="back-icon"
+      ></ion-icon>
+    </ion-button>
+  
+    <h1 class="title">TravelPal</h1>
+  
+    <div class="language-container">
+      <ion-button 
+        fill="clear" 
+        class="language-button"
+        (click)="toggleLanguageMenu()"
+      >
+        {{ currentLanguage === 'pt' ? 'PT' : 'EN' }}
+        <ion-icon 
+          [name]="showLanguageMenu ? 'chevron-up-outline' : 'chevron-down-outline'"
+          class="language-icon"
+        ></ion-icon>
+      </ion-button>
+
+      <div class="language-menu" *ngIf="showLanguageMenu">
+        <div class="menu-item" 
+            (click)="changeLanguage('pt')"
+            [class.active]="currentLanguage === 'pt'">
+          {{ 'LANGUAGE.PT' | translate }}
+        </div>
+        <div class="menu-item" 
+            (click)="changeLanguage('en')"
+            [class.active]="currentLanguage === 'en'">
+          {{ 'LANGUAGE.EN' | translate }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="right-section">
+      <h2 class="title">{{ (isLogin ? 'LOGIN.TITLE' : 'LOGIN.CREATE_ACCOUNT') | translate }}</h2>
+      
+      <ion-item class="custom-item" *ngIf="!isLogin">
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-input type="text" [placeholder]="'LOGIN.USERNAME' | translate" [(ngModel)]="name" name="name"></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-item">
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-input type="email" [placeholder]="'LOGIN.EMAIL' | translate" [(ngModel)]="email" name="email"></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-item">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input [type]="showPassword ? 'text' : 'password'" [placeholder]="'LOGIN.PASSWORD' | translate" [(ngModel)]="password" name="password"></ion-input>
+        <ion-icon slot="end" [name]="showPassword ? 'eye-off-outline' : 'eye-outline'" (click)="togglePasswordVisibility()"></ion-icon>
+      </ion-item>
+
+      <ion-button expand="block" class="login-button" (click)="submit()">
+        {{ (isLogin ? 'LOGIN.TITLE' : 'LOGIN.CREATE_ACCOUNT') | translate }}
+      </ion-button>      
+
+      <div class="divider-container">
+        <div class="line"></div>
+        <span class="divider-text">{{ 'LOGIN.OR' | translate }}</span>
+        <div class="line"></div>
+      </div>
+
+      <ion-button expand="block" fill="outline" class="signup-button" (click)="toggleForm()">
+        {{ (isLogin ? 'LOGIN.CREATE_ACCOUNT' : 'LOGIN.HAVE_ACCOUNT') | translate }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

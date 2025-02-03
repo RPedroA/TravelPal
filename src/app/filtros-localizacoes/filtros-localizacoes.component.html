@@ -1,0 +1,35 @@
+<ion-header class="rounded-top">
+  <ion-toolbar class="rounded-top">
+    <ion-title>Filtros</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="closeModal()" name="close-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Ordenar por</ion-label>
+      <ion-select [(ngModel)]="orderBy" class="ion-text-end">
+        <ion-select-option value="date-desc">Mais Recentes Primeiro</ion-select-option>
+        <ion-select-option value="date-asc">Mais Antigos Primeiro</ion-select-option>
+        <ion-select-option value="alpha-asc">A-Z (Ordem Alfabética)</ion-select-option>
+        <ion-select-option value="alpha-desc">Z-A (Ordem Alfabética)</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Mostrar apenas favoritos</ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="showOnlyFavorites"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="footer-rounded">
+  <ion-toolbar>
+    <ion-button expand="block" (click)="applyFilters()" class="custom-colored-button">
+      Aplicar Filtros
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

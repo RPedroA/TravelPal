@@ -1,0 +1,150 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button (click)="openFilters()" fill="clear" slot="start">
+      <ion-icon name="filter" size="large"></ion-icon>
+    </ion-button>
+
+    <ion-title class="ion-text-center"> Viagens </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="openModal()">
+        <ion-icon size="large" src="../../assets/icon/add.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col >
+        <ion-searchbar
+          class="ion-border-search centered-item-noText"
+          placeholder="Pesquisar Viagens"
+          (ionInput)="onSearch($event)">
+        </ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="cards-container">
+    <ion-row class="cards-row">
+      <ion-col 
+        *ngFor="let viagem of filteredViagens" 
+        class="card-column"
+      >
+        <ion-card>
+          <ion-card-header class="card-header">
+            <ion-row>
+              <ion-col class="ion-text-left" size="auto">
+                <ion-button fill="clear" (click)="toggleFavorite(viagem)">
+                  <ion-icon
+                    size="large"
+                    [name]="viagem.isFav ? 'heart' : 'heart-outline'"
+                    [color]="viagem.isFav ? 'dark' : 'dark'"
+                  ></ion-icon>
+                </ion-button>
+              </ion-col>
+
+              <ion-col class="title-col">
+                <ion-card-title class="ion-text-center">
+                  {{ viagem.description }}
+                </ion-card-title>
+              </ion-col>
+
+              <ion-col class="ion-text-right" size="auto">
+                <ion-button fill="clear" (click)="editViagem(viagem)">
+                  <ion-icon
+                    size="large"
+                    name="create-outline"
+                    color="dark"
+                  ></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-list>
+              <ion-item class="mini-text">Destino</ion-item>
+              <ion-item class="ion-border">
+                <ion-label>{{ viagem.prop2 }}</ion-label>
+              </ion-item>
+              <ion-item class="mini-text">Tipo</ion-item>
+              <ion-item class="ion-border">
+                <ion-label>{{ viagem.type }}</ion-label>
+              </ion-item>
+              <ion-item class="mini-text">Nº Participantes</ion-item>
+              <ion-item class="ion-border">
+                <ion-label>{{ viagem.prop1 }}</ion-label>
+              </ion-item>
+              <ion-item class="mini-text">Estado</ion-item>
+              <ion-item class="ion-border">
+                <ion-label>{{ viagem.state }}</ion-label>
+              </ion-item>
+              <ion-row>
+                <ion-col>
+                  <ion-item class="mini-text">Começa</ion-item>
+                  <ion-item class="ion-border2 ion-text-center">
+                    <ion-label>
+                      {{ viagem.startAt | date: 'HH:mm dd/MM/yyyy' }}
+                    </ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item class="mini-text">Acaba</ion-item>
+                  <ion-item class="ion-border2 ion-text-center">
+                    <ion-label>
+                      {{ viagem.endAt | date: 'HH:mm dd/MM/yyyy' }}
+                    </ion-label>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-list>
+            
+            <ion-row class="row-equal-height">
+              <ion-col>
+                <ion-textarea
+                  [(ngModel)]="viagem.newComment"
+                  label="Escreva a sua nota aqui..."
+                  minlength="1"
+                  inputmode="text"
+                  [autoGrow]="true"
+                  labelPlacement="floating"
+                  fill="outline"
+                  placeholder="Escreva a sua nota aqui..."
+                  rows="1"
+                  maxlength="500"
+                  aria-label="Campo de comentário"
+                ></ion-textarea>
+              </ion-col>
+              <ion-col size="auto" class="button-col">
+                <ion-button
+                  expand="block"
+                  class="icon-button"
+                  fill="clear"
+                  style="border-radius: 8px; border: 2px solid #C38E3F"
+                  (click)="addComment(viagem.id)" 
+                >
+                  <ion-icon src="../../assets/icon/comentarios.svg"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+            
+            
+            <ion-row>
+              <ion-col>
+                <ion-button fill="outline" (click)="openCommentsModal(viagem)">
+                  Notas
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="outline" (click)="openLocations(viagem)">Localizações</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -10,4 +10,10 @@ export class Tab2Page {
 
   constructor() {}
 
+  mostrarNotificacao: boolean = true;
+
+  fecharNotificacao() {
+    this.mostrarNotificacao = false;
+  }
+
 }

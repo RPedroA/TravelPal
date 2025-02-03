@@ -1,0 +1,92 @@
+<ion-header class="rounded-top">
+  <ion-toolbar class="rounded-top">
+    <ion-title>Nova Localização</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="closeModal()" name="close-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="rounded-bottom">
+  <form [formGroup]="localizacaoForm" class="compact-form">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Descrição</ion-label>
+        <ion-input
+          class="input-with-line"
+          formControlName="description"
+          placeholder="Ex.: Hotel, Restaurante, etc."
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="localizacaoForm.get('description')?.invalid && localizacaoForm.get('description')?.touched">
+        Descrição é obrigatória.
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked">Tipo</ion-label>
+        <ion-input
+          class="input-with-line"
+          formControlName="type"
+          placeholder="Ex.: Hospedagem, Alimentação, etc."
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="localizacaoForm.get('type')?.invalid && localizacaoForm.get('type')?.touched">
+        Tipo é obrigatório.
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked">Custo (€)</ion-label>
+        <ion-input
+          class="input-with-line"
+          formControlName="cost"
+          type="number"
+          placeholder="Ex.: 150"
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="localizacaoForm.get('cost')?.invalid && localizacaoForm.get('cost')?.touched">
+        Custo deve ser um valor válido.
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked">Estado</ion-label>
+        <ion-input
+          class="input-with-line"
+          formControlName="state"
+          placeholder="Ex.: Planeado, Concluída, etc."
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="localizacaoForm.get('state')?.invalid && localizacaoForm.get('state')?.touched">
+        Estado é obrigatório.
+      </ion-text>
+
+      <ion-item class="centered-item">
+        <ion-label position="stacked">Data de Início</ion-label>
+        <ion-datetime
+          formControlName="startAt"
+          display-format="HH:mm dd/MM/yyyy"
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-item class="centered-item">
+        <ion-label position="stacked">Data de Fim</ion-label>
+        <ion-datetime
+          formControlName="endAt"
+          display-format="HH:mm dd/MM/yyyy"
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="localizacaoForm.errors?.['invalidDateRange']">
+        A data de fim não pode ser anterior à data de início.
+      </ion-text>
+    </ion-list>
+    <ion-button
+      class="custom-colored-button"
+      expand="block"
+      [disabled]="localizacaoForm.invalid"
+      (click)="createLocation()"
+
+    >
+      Salvar
+    </ion-button>
+  </form>
+</ion-content>

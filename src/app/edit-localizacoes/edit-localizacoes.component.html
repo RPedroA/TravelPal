@@ -1,0 +1,52 @@
+<ion-header class="rounded-top">
+  <ion-toolbar class="rounded-top">
+    <ion-title>Editar Localização</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="closeModal()" name="close-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="rounded-bottom">
+  <form [formGroup]="editForm" (ngSubmit)="saveChanges()">
+    <ion-item>
+      <ion-label position="stacked">Descrição</ion-label>
+      <ion-input formControlName="description" class="input-with-line"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tipo</ion-label>
+      <ion-input formControlName="type" class="input-with-line"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Custo (€)</ion-label>
+      <ion-input formControlName="cost" type="number" class="input-with-line"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Estado</ion-label>
+      <ion-input formControlName="state" class="input-with-line"></ion-input>
+    </ion-item>
+
+    <ion-item class="centered-item">
+      <ion-label position="stacked">Data de Início</ion-label>
+      <ion-datetime formControlName="startAt" display-format="HH:mm dd/MM/yyyy"></ion-datetime>
+    </ion-item>
+
+    <ion-item class="centered-item">
+      <ion-label position="stacked">Data de Fim</ion-label>
+      <ion-datetime formControlName="endAt" display-format="HH:mm dd/MM/yyyy"></ion-datetime>
+    </ion-item>
+
+    <ion-text color="danger" *ngIf="editForm.errors?.['invalidDateRange']">
+      A data de fim não pode ser anterior à data de início.
+    </ion-text>
+
+    <ion-button (click)="deleteLocalizacao(localizacao.id)" fill="outline" class="custom-border-button">Excluir</ion-button>
+
+    <ion-button expand="block" type="submit" [disabled]="editForm.invalid" class="custom-colored-button">
+      Salvar
+    </ion-button>
+  </form>
+</ion-content>

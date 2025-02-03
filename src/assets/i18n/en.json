@@ -1,0 +1,19 @@
+{
+  "LOGIN": {
+    "USERNAME": "User Name",
+    "TITLE": "Login",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "CREATE_ACCOUNT": "Create Account",
+    "OR": "Or",
+    "HAVE_ACCOUNT": "Already have an account?"
+  },
+  "LANGUAGE": {
+    "PT": "Portuguese",
+    "EN": "English"
+  },
+  "HOME": {
+    "TITLE": "Travel With Us",
+    "DESCRIPTION": "Share your travels and describe your experiences."
+  }
+}

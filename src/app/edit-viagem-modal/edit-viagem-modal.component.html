@@ -1,0 +1,77 @@
+<ion-header class="rounded-top">
+  <ion-toolbar class="rounded-top">
+    <ion-title>Editar Viagem</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="closeModal()" name="close-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="rounded-bottom">
+  <form [formGroup]="editForm" (ngSubmit)="saveChanges()">
+    <ion-item>
+      <ion-label position="stacked">Nome</ion-label>
+      <ion-input
+        class="input-with-line"
+        formControlName="nome"
+        placeholder="Nome da Viagem"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Destino</ion-label>
+      <ion-input formControlName="destino" placeholder="Destino" class="input-with-line"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tipo</ion-label>
+      <ion-input class="input-with-line"
+        formControlName="tipo"
+        placeholder="Tipo de Viagem"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Nº de Participantes</ion-label>
+      <ion-input class="input-with-line"
+        formControlName="participantes"
+        type="number"
+        placeholder="Número de Participantes"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Estado</ion-label>
+      <ion-input formControlName="estado" placeholder="Estado" class="input-with-line"></ion-input>
+    </ion-item>
+
+    <ion-item class="centered-item">
+      <ion-label position="stacked">Data de Início</ion-label>
+      <ion-datetime
+        formControlName="dataInicio"
+        display-format="HH:mm dd/MM/yyyy"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-item class="centered-item">
+      <ion-label position="stacked">Data de Fim</ion-label>
+      <ion-datetime
+        formControlName="dataFim"
+        display-format="HH:mm dd/MM/yyyy"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-text color="danger" *ngIf="editForm.errors?.['invalidDateRange']">
+      A data de fim não pode ser anterior à data de início.
+    </ion-text>
+
+    <ion-button (click)="deleteViagem(viagem.id)" fill="outline" class="custom-border-button">Excluir</ion-button>
+
+    <ion-button
+      expand="block"
+      type="submit"
+      [disabled]="editForm.invalid"
+      class="custom-colored-button"
+    >Salvar</ion-button>
+  </form>
+</ion-content>

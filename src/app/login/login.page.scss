@@ -1,0 +1,323 @@
+.login-container {
+    --background: #FFFFFF !important; 
+    height: 100vh;
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        position: relative;
+      
+        .back-button {
+          --padding-start: 0;
+          --padding-end: 0;
+          margin: 0;
+          z-index: 1;
+      
+          ion-icon {
+            color: #C38E3F;
+            font-size: 1.8rem;
+          }
+        }
+      
+        .title {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          margin: 0;
+          color: #C38E3F;
+        }
+      }
+
+    .language-container {
+        position: relative;
+        display: inline-block;
+      
+        .language-button {
+          --padding-start: 0;
+          --padding-end: 0;
+          --color: #C38E3F !important;
+          font-weight: bold;
+          margin-right: 15px;
+        }
+      
+        .language-menu {
+          position: absolute;
+          right: 0;
+          top: 100%;
+          background: rgb(255, 255, 255);
+          border: 2px solid #C38E3F;
+          border-radius: 8px;
+          margin-top: 5px;
+          min-width: 120px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          z-index: 100;
+      
+          .menu-item {
+            padding: 12px 16px;
+            color: #000000;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+      
+            &:hover {
+              background-color: #f8f8f8;
+              border-radius: 5px;
+            }
+      
+            &.active {
+              color: #C38E3F;
+              font-weight: bold;
+            }
+      
+            &:not(:last-child) {
+              border-bottom: 1px solid #eeeeee;
+            }
+          }
+        }
+      }
+
+      .main-content {
+        height: calc(100% - 90px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  padding: 40px;
+
+  .right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    max-width: 400px;
+    text-align: center; 
+  
+    .title {
+      font-size: 3rem;
+      color: #000000;
+      margin-bottom: 20px;
+    }
+  
+    .description {
+      font-size: 1.2rem; 
+      color: #000000;
+      margin-bottom: 30px; 
+      text-align: justify; 
+      text-align-last: center; 
+    }
+  
+    .login-button,
+    .signup-button {
+      width: 100%;
+      max-width: 300px;
+      height: 60px;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+  
+    .signup-button {
+      border: 2px solid #C38E3F;
+      color: #C38E3F;
+      background-color: #FFFFFF;
+    }
+  
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 300px;
+      margin: 20px 0;
+  
+      span {
+        height: 1px;
+        flex: 1;
+        background-color: #C38E3F;
+      }
+  
+      span:nth-child(2) {
+        margin: 0 10px;
+        color: #000000;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+.divider-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 25px 0;
+  
+    .line {
+      flex: 1;
+      height: 1.5px;
+      background-color: #C38E3F;
+    }
+  
+    .divider-text {
+      padding: 0 12px;
+      color: #666;
+      font-size: 1.1rem;
+    }
+  }
+
+.custom-item {
+    --background: #FFFFFF;
+    border: 1px solid #C38E3F !important;
+    border-radius: 8px !important;
+    margin-bottom: 20px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    width: 100%;
+    max-width: 400px;
+    height: 56px;
+    
+    ion-icon {
+        color: #C38E3F !important;
+        margin-right: 10px;
+    }
+
+    ion-input {
+        --placeholder-color: #666666;
+        --placeholder-opacity: 1;
+        font-size: 1rem;
+        color: #000000;
+        --padding-top: 4px;
+    }
+
+    &.item-has-focus {
+        border: 2px solid #C38E3F !important;
+    }
+}
+
+ion-item {
+    --border-style: none !important;
+    --show-full-highlight: 0 !important;
+    --show-inset-highlight: 0 !important;
+}
+
+.forgot-password {
+    color: #C38E3F !important;
+    text-decoration: none;
+    font-size: 0.9rem;
+    align-self: flex-end;
+    margin: 10px 0 20px 0;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.login-button {
+    --background: #C38E3F !important;
+    --box-shadow: none !important;
+}
+
+.signup-button {
+    --border-color: #C38E3F !important;
+    --color: #C38E3F !important;
+}
+  
+}
+@media screen and (max-width: 1024px) {
+    .main-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+  
+      .left-section {
+        order: 1;
+      }
+  
+      .right-section {
+        order: 2;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+  
+        .title {
+          font-size: 2rem;
+        }
+  
+        .description {
+          font-size: 0.7rem;
+          margin-bottom: 20px;
+          text-align: justify;
+          text-align-last: center;
+        }
+  
+        .login-button,
+        .signup-button {
+          max-width: 90%;
+          height: 70px;
+        }
+  
+        .divider {
+          max-width: 90%;
+          span:nth-child(2) {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (min-width: 1025px) {
+    .main-content {
+      flex-direction: row;
+      padding: 40px;
+      margin-right: 40px;
+      width: calc(100% + 90px);
+  
+      .left-section {
+        justify-content: center;
+      }
+  
+      .right-section {
+        align-items: center;
+        text-align: center;
+        margin-right: 100px;
+  
+        .title {
+          font-size: 5.5rem;
+        }
+  
+        .description {
+          font-size: 1.2rem;
+          margin-bottom: 30px;
+          text-align: justify;
+          text-align-last: center;
+        }
+  
+        .login-button,
+        .signup-button {
+          max-width: 400px;
+          height: 80px;
+          font-size: 1.5rem;
+        }
+  
+        .divider {
+          max-width: 400px;
+          span:nth-child(2) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }

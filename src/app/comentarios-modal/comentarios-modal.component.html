@@ -1,0 +1,28 @@
+<ion-header class="rounded-top">
+  <ion-toolbar class="rounded-top">
+    <ion-title>Comentários de "{{ travelDescription }}"</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="closeModal()" name="close-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="rounded-bottom">
+  <ion-list *ngIf="comments.length > 0; else noComments">
+    <ion-item *ngFor="let comment of comments" style="display: flex; justify-content: space-between; align-items: center;">
+      <ion-label class="input-with-line" style="flex-grow: 1;">
+        <h2>{{ comment.comment }}</h2>
+        <p class="date">{{ comment.createdAt | date : "short" }}</p>
+      </ion-label>
+      <ion-button (click)="confirmDeleteComment(comment.id)" style="margin-bottom: 1.5em;">
+        <ion-icon class="custom-border-button" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ng-template #noComments>
+    <ion-text class="ion-text-center">Nenhum comentário disponível.</ion-text>
+  </ng-template>
+</ion-content>
+
+
+

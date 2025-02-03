@@ -1,0 +1,126 @@
+
+<ion-header class="rounded-top">
+  <ion-toolbar class="rounded-top">
+    <ion-title>Nova Viagem</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="closeModal()" name="close-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="rounded-bottom">
+  <form [formGroup]="viagemForm" class="compact-form">
+    <ion-list>
+      <ion-item >
+        <ion-label position="stacked">Nome</ion-label>
+        <ion-input class="input-with-line"
+          formControlName="nome"
+          placeholder="Ex.: Lua de Mel"
+        ></ion-input>
+      </ion-item>
+      <ion-text
+        color="danger"
+        *ngIf="
+          viagemForm.get('nome')?.invalid && viagemForm.get('nome')?.touched
+        "
+      >
+        Nome é obrigatório.
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked">Destino</ion-label>
+        <ion-input class="input-with-line"
+          formControlName="destino"
+          placeholder="Ex.: França, Itália, etc..."
+        ></ion-input>
+      </ion-item>
+      <ion-text
+        color="danger"
+        *ngIf="
+          viagemForm.get('destino')?.invalid &&
+          viagemForm.get('destino')?.touched
+        "
+      >
+        Destino é obrigatório.
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked">Tipo</ion-label>
+        <ion-input class="input-with-line"
+          formControlName="tipo"
+          placeholder="Ex.: Negócios, Lazer, etc..."
+        ></ion-input>
+      </ion-item>
+      <ion-text
+        color="danger"
+        *ngIf="
+          viagemForm.get('tipo')?.invalid && viagemForm.get('tipo')?.touched
+        "
+      >
+        Tipo é obrigatório.
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked">Nº de Participantes</ion-label>
+        <ion-input class="input-with-line"
+          formControlName="participantes"
+          type="number"
+          placeholder="Ex.: 5"
+        ></ion-input>
+      </ion-item>
+      <ion-text
+        color="danger"
+        *ngIf="
+          viagemForm.get('participantes')?.invalid &&
+          viagemForm.get('participantes')?.touched
+        "
+      >
+        Nº de Participantes deve ser pelo menos 1.
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked">Estado</ion-label>
+        <ion-input class="input-with-line"
+          formControlName="estado"
+          placeholder="Ex.: Planeada, Concluída, Em Progresso, etc..."
+        ></ion-input>
+      </ion-item>
+      <ion-text
+        color="danger"
+        *ngIf="
+          viagemForm.get('estado')?.invalid && viagemForm.get('estado')?.touched
+        "
+      >
+        Estado é obrigatório.
+      </ion-text>
+
+      <ion-item class="centered-item">
+        <ion-label position="stacked">Data de Início</ion-label>
+        <ion-datetime
+          formControlName="dataInicio"
+          display-format="HH:mm dd/MM/yyyy"
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-item class="centered-item">
+        <ion-label position="stacked">Data de Fim</ion-label>
+        <ion-datetime
+          formControlName="dataFim"
+          display-format="HH:mm dd/MM/yyyy"
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="viagemForm.errors?.['invalidDateRange']">
+        A data de fim não pode ser anterior à data de início.
+      </ion-text>
+    </ion-list>
+    <ion-button
+      class="custom-colored-button"
+      expand="block"
+      [disabled]="viagemForm.invalid"
+      (click)="createViagem(viagemForm.value)"
+    >
+      Salvar
+    </ion-button>
+  </form>
+</ion-content>

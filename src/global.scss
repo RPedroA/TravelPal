@@ -1,14 +1,3 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
-
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
@@ -25,13 +14,523 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+:root {
+  --main-bg-color: #fffcfa;
+  --secondary-bg-color: #f5f0e6;
+  --main-border-color: #c38e3f;
+  --hover-color: #d4a96a;
+  --unselected-color: #e8d2b0;
+  --text-primary: #2c2c2c;
+  --text-secondary: #5a5a5a;
+  --text-white: #ffffff;
+  --ion-color-primary: var(--main-border-color);
+  --ion-color-primary-contrast: var(--text-white);
+  --ion-datetime-background: var(--main-bg-color);
+  --ion-datetime-calendar-background: var(--main-bg-color);
+  --ion-datetime-calendar-color: var(--text-primary);
+  --ion-datetime-calendar-today-color: var(--main-border-color);
+  --ion-datetime-calendar-day-active-background: var(--main-border-color);
+  --ion-datetime-calendar-day-active-color: var(--text-white);
+  --ion-datetime-calendar-day-hover-background: var(--hover-color);
+  --ion-datetime-calendar-day-hover-color: var(--text-white);
+  --ion-datetime-month-year-color: var(--text-primary);
+  --ion-datetime-month-year-toggle-color: var(--main-border-color);
+  --ion-datetime-button-color: var(--main-border-color);
+  --ion-datetime-button-background: var(--secondary-bg-color);
+  --ion-datetime-calendar-day-disabled-color: var(--unselected-color);
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+  ion-loading {
+    --background: var(--main-bg-color);
+    --border-radius: 8px;
+    --spinner-color: var(--main-border-color);
+  }
+}
+
+* {
+  box-shadow: none !important;
+}
+
+body {
+  background: var(--main-bg-color);
+  color: var(--text-primary);
+}
+
+ion-content,
+ion-header,
+ion-toolbar,
+ion-card,
+ion-list,
+ion-item,
+ion-searchbar,
+ion-textarea {
+  --background: var(--main-bg-color) !important;
+  background: var(--main-bg-color) !important;
+  box-shadow: none !important;
+}
+
+ion-button {
+  --box-shadow: none !important;
+}
+
+ion-card,
+ion-item,
+ion-button[fill="outline"],
+ion-searchbar,
+ion-textarea,
+.ion-border,
+.ion-border2 {
+  border-color: var(--main-border-color) !important;
+  --border-color: var(--main-border-color) !important;
+  box-shadow: none !important;
+}
+
+.ion-border {
+  border: 1px solid var(--main-border-color) !important;
+  border-radius: 8px;
+  z-index: 10;
+  font-size: 16px;
+}
+
+.ion-border2 {
+  border: 1px solid var(--main-border-color) !important;
+  border-radius: 8px;
+  z-index: 10;
+  font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+}
+
+ion-item.ion-border,
+ion-item.ion-border2 {
+  border-bottom: 1px solid var(--main-border-color) !important;
+}
+
+.mini-text {
+  padding: 0px 0px !important;
+  margin-bottom: -12px;
+  margin-top: -0.1em;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+ion-card {
+  border-radius: 8px;
+  border: 1px solid var(--main-border-color);
+}
+
+.row-equal-height {
+  display: flex;
+  align-items: stretch;
+}
+
+.button-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-button {
+  height: 100%;
+  width: auto;
+}
+
+.card-header ion-row {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.title-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.centered-item ion-datetime {
+  margin-top: 8px;
+  width: 100%;
+  max-width: 300px;
+}
+
+ion-button[fill="outline"] {
+  --border-color: var(--main-border-color);
+  --color: var(--main-border-color);
+}
+
+ion-searchbar {
+  --border-radius: 8px;
+  --box-shadow: none !important;
+}
+
+ion-textarea {
+  --border-radius: 8px;
+  --border-width: 1px;
+  --border-style: solid;
+  --box-shadow: none !important;
+}
+
+ion-header {
+  --background: var(--main-border-color) !important;
+  background: var(--main-border-color) !important;
+}
+
+ion-toolbar {
+  --background: var(--main-border-color) !important;
+  background: var(--main-border-color) !important;
+  --color: var(--text-white) !important;
+}
+
+ion-header ion-button {
+  --color: var(--text-white) !important;
+}
+
+ion-title {
+  --color: var(--text-white) !important;
+}
+
+ion-modal {
+  --background: transparent !important;
+  --box-shadow: none !important;
+}
+
+ion-modal ion-content {
+  --background: transparent !important;
+  --box-shadow: none !important;
+}
+
+ion-modal ion-card,
+ion-modal ion-item {
+  --background: var(--main-bg-color) !important;
+  background: var(--main-bg-color) !important;
+}
+
+ion-item {
+  --border-width: 0 !important;
+  --inner-border-width: 0 !important;
+  border-bottom: none !important;
+}
+
+ion-item::part(native) {
+  --border-width: 0 !important;
+  border-bottom: none !important;
+}
+
+ion-item {
+  --box-shadow: none !important;
+  --border-width: 0 !important;
+  --inner-border-width: 0 !important;
+  border-bottom: none !important;
+}
+
+ion-item::part(native) {
+  --border-width: 0 !important;
+  border-bottom: none !important;
+}
+
+.ion-border {
+  border: 2px solid var(--main-border-color) !important;
+  border-radius: 8px;
+  z-index: 10;
+  font-size: 16px;
+}
+
+.ion-border2 {
+  border: 2px solid var(--main-border-color) !important;
+  border-radius: 8px;
+  z-index: 10;
+  font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+}
+
+ion-item.ion-border,
+ion-item.ion-border2 {
+  border-bottom: 2px solid var(--main-border-color) !important;
+}
+
+ion-card {
+  border-radius: 8px;
+  border: 2px solid var(--main-border-color) !important;
+}
+
+ion-card-header {
+  border-bottom: 2px solid var(--main-border-color);
+  margin-bottom: 0px;
+}
+
+ion-textarea {
+  --border-radius: 8px;
+  --border-width: 2px !important;
+  --border-style: solid;
+  --box-shadow: none !important;
+}
+
+ion-button[fill="outline"] {
+  --border-width: 2px !important;
+  --border-color: var(--main-border-color);
+  --color: var(--main-border-color);
+}
+
+ion-card-header {
+  --background: var(--main-border-color) !important;
+  background: var(--main-border-color) !important;
+  border-bottom: 2px solid var(--main-border-color) !important;
+  --color: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+ion-card-title {
+  --color: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+ion-card-header.card-header {
+  --background: var(--main-border-color) !important;
+  background: var(--main-border-color) !important;
+  border-bottom: 2px solid var(--main-border-color) !important;
+  padding: 12px !important;
+}
+
+ion-card-header.card-header ion-button,
+ion-card-header.card-header ion-icon,
+ion-card-header.card-header ion-card-title {
+  --color: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+ion-card-header.card-header ion-button {
+  --background-hover: rgba(0, 0, 0, 0.1) !important;
+}
+
+ion-card-header.card-header {
+  --background: var(--main-border-color) !important;
+  background: var(--main-border-color) !important;
+  border-bottom: 2px solid var(--main-border-color) !important;
+  padding: 12px !important;
+}
+
+ion-card-header.card-header ion-button,
+ion-card-header.card-header ion-icon,
+ion-card-header.card-header ion-card-title {
+  --color: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+ion-card-header.card-header ion-button[color="danger"] ion-icon {
+  --color: var(--ion-color-danger) !important;
+}
+
+ion-card-header.card-header {
+  padding: 0px !important;
+  padding-bottom: -15px !important;
+}
+
+ion-tab-bar {
+  --background: var(--main-border-color) !important;
+  --color: var(--unselected-color) !important;
+  --color-selected: var(--text-primary) !important;
+}
+
+ion-title {
+  --color: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.rounded-top {
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+}
+
+ion-content.rounded-bottom {
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  overflow: hidden;
+}
+
+ion-content.rounded-bottom form.compact-form {
+  margin-bottom: 4px;
+}
+
+ion-button[fill="outline"] {
+  --border-color: var(--main-border-color);
+  --border-width: 2px;
+  --color: black;
+}
+
+.custom-colored-button {
+  --background: var(--main-border-color);
+  --border-color: var(--main-border-color);
+  --border-width: 2px;
+  --color: black;
+}
+
+.custom-border-button {
+  --border-color: var(--main-border-color);
+  --border-width: 2px;
+}
+
+ion-modal ion-icon {
+  color: black;
+}
+
+ion-header ion-icon {
+  color: black;
+}
+
+.centered-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.centered-item ion-datetime {
+  margin-top: 8px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.input-with-line {
+  border-bottom: 2px solid var(--unselected-color) !important;
+  padding-bottom: 5px;
+}
+
+ion-datetime::part(calendar-body) {
+  border-color: var(--unselected-color);
+}
+
+ion-datetime::part(calendar-header) {
+  background: var(--secondary-bg-color);
+  color: var(--text-primary);
+}
+
+ion-datetime::part(time-button) {
+  color: var(--text-primary);
+  background: var(--secondary-bg-color);
+}
+
+ion-datetime::part(time-button).active {
+  color: var(--text-white);
+  background: var(--main-border-color);
+}
+
+ion-item:has(ion-datetime) {
+  --background-hover: transparent !important;
+}
+
+.input-with-line {
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+.custom-loading-class {
+  --background: var(--main-bg-color);
+  --border-radius: 8px;
+  --spinner-color: var(--main-border-color);
+}
+
+ion-card {
+  flex-grow: 1;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  ion-col.card-column {
+    flex: 1 0 100% !important;
+    max-width: 100% !important;
+    min-width: unset !important;
+  }
+  
+  ion-card {
+    width: calc(100% - 16px) !important;
+    margin: 8px !important;
+    border-radius: 8px !important;
+  }
+  
+  ion-grid.cards-container {
+    padding: 0 8px;
+  }
+}
+
+ion-grid.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 8px;
+}
+
+ion-row.cards-row {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+ion-col.card-column {
+  flex: 1 0 400px; 
+  max-width: 400px;
+  min-width: 300px;
+  display: flex;
+}
+
+.centered-item-noText {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.ion-border-search {
+  --background: var(--main-bg-color);
+  --border-radius: 8px;
+  --box-shadow: none;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto; 
+}
+
+.ion-border-search .searchbar-input-container {
+  border: 2px solid var(--main-border-color);
+  border-radius: 8px;
+}
+
+.ion-border-search .searchbar-input {
+  border-radius: 8px;
+  background: var(--main-bg-color);
+  text-align: left !important; 
+}
+
+.footer-rounded {
+  background: var(--main-border-color); 
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  padding: 8px 0;
+}
+
+.footer-rounded ion-toolbar {
+  --background: transparent;
+  --border-width: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+}

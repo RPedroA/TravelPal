@@ -1,0 +1,60 @@
+<ion-content class="home-container">
+  <div class="header">
+    <h1 class="title">TravelPal</h1>
+
+    <div class="language-container">
+      <ion-button 
+        fill="clear" 
+        class="language-button"
+        (click)="toggleLanguageMenu()"
+      >
+        {{ currentLanguage === 'pt' ? 'PT' : 'EN' }}
+        <ion-icon 
+          [name]="showLanguageMenu ? 'chevron-up-outline' : 'chevron-down-outline'"
+          class="language-icon"
+        ></ion-icon>
+      </ion-button>
+
+      <div class="language-menu" *ngIf="showLanguageMenu">
+        <div class="menu-item" 
+             (click)="changeLanguage('pt')"
+             [class.active]="currentLanguage === 'pt'">
+          {{ 'LANGUAGE.PT' | translate }}
+        </div>
+        <div class="menu-item" 
+             (click)="changeLanguage('en')"
+             [class.active]="currentLanguage === 'en'">
+          {{ 'LANGUAGE.EN' | translate }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="left-section">
+      <img src="assets/plane-line.png" alt="Avião com Linha" class="plane-line-image" />
+    </div>
+
+    <div class="right-section">
+      <h2 class="title">{{ 'HOME.TITLE' | translate }}</h2>
+      
+      <p class="description">
+        {{ 'HOME.DESCRIPTION' | translate }}
+      </p>
+
+      <ion-button expand="block" class="login-button" (click)="goToLogin('login')">
+        {{ 'LOGIN.TITLE' | translate }}
+      </ion-button>
+
+      <div class="divider-container">
+        <div class="line"></div>
+        <span class="divider-text">{{ 'LOGIN.OR' | translate }}</span>
+        <div class="line"></div>
+      </div>
+
+      <ion-button expand="block" fill="outline" class="signup-button" (click)="goToLogin('signup')">
+        {{ 'LOGIN.CREATE_ACCOUNT' | translate }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

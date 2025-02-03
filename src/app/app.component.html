@@ -1,3 +1,9 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<div *ngIf="isLoading" class="loading-page">
+  <div class="logo-container">
+    <div class="logo-mask">
+      <img src="../assets/logo.png" alt="TravelPal Logo" class="loading-logo" />
+    </div>
+  </div>
+</div>
+
+<router-outlet *ngIf="!isLoading"></router-outlet>
