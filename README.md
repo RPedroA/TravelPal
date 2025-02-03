@@ -35,9 +35,8 @@ O desenvolvimento seguiu um processo estruturado, que incluiu a criação de **m
 ---
 
 ## 🔗 Links do Projeto  
-- 🔥 **Deploy da Aplicação (Vercel)**: [Colocar Link Aqui](#)  
-- 🎨 **Protótipo UI/UX (Figma)**: [Colocar Link Aqui](#)  
-- 📌 **Gestão e Planeamento (Trello)**: [Colocar Link Aqui](#)  
+- 🔥 **Deploy da Aplicação (Vercel)**: [Colocar Link Aqui]([#](https://travel-pal-three.vercel.app/home))  
+- 🎨 **Protótipo UI/UX (Figma)**: [Colocar Link Aqui]([#](https://www.figma.com/community/file/1468358178650226696))   
 - 📦 **Releases e Versões da Aplicação**: [Colocar Link Aqui](#)  
 
 Os links acima permitem acompanhar o desenvolvimento, testar a aplicação e explorar os conceitos aplicados no projeto.  
