@@ -1,0 +1,7 @@
+{
+  "name": "TravelPal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
