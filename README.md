@@ -1,4 +1,4 @@
-# Travel APL - Aplicação de Gestão de Viagens 🚀
+# Travel APL - Aplicação de Gestão de Viagens ✈️
 
 ## 📌 Sobre o Projeto
 **Travel APL** é uma aplicação móvel desenvolvida como parte de um projeto universitário na unidade curricular **Sistemas Móveis Interativos**, do curso **Desenvolvimento Web e Multimédia**.  
